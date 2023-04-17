@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import React from 'react'
+import Navbar from './components/statics/navbar/Navbar'
+import Home from './pages/home/Home'
+import Footer from './components/statics/footer/Footer'
+import { Grid } from '@material-ui/core'
 import './App.css'
-import Home from './paginas/home/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-     <Home />
-    )
+    <>
+    <Navbar/>
+    <Home />
+    <Footer />
+    </>
+  );
 }
 
 export default App
