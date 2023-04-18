@@ -1,30 +1,33 @@
 import React from "react";
-import {Toolbar, AppBar, IconButton, Typography, Button} from "@material-ui/core"
+import { Toolbar, AppBar, IconButton, Typography, Button } from "@material-ui/core"
 import { Box } from "@mui/material";
 import MenuIcon from '@material-ui/icons/Menu';
+import { Link } from "react-router-dom";
 import "./Navbar.css"
-import { Padding } from "@mui/icons-material";
-
 
 
 function Navbar() {
     return (
         <>
             <div className="root">
-                <AppBar position="static" className="appBar" style={{background: "#FFE4B5"}}>
+                <AppBar position="static" className="appBar" style={{ background: "black" }}>
                     <Toolbar>
-                        <IconButton edge="start" className="menuButton" aria-label="menu" style={{color: "black", fontWeight:"bold"}}>
+                        <IconButton edge="start" className="menuButton" aria-label="menu" style={{ color: "#ff6197", fontWeight: "bold" }}>
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h6" className="title" style={{color: "black"}}>
-                           Blog Pessoal
+                        <Typography variant="h5" className="title" style={{ color: "#ff6197", fontFamily: "calibri", fontWeight: "bold" }}>
+                            Blog Pessoal
                         </Typography>
                         <Box paddingX={30}>
-                        <Button className="options" style={{ color: "#DC143C", fontWeight: "bold" }}>Home</Button>
-                        <Button className="options" style={{ color: "#DC143C", fontWeight: "bold" }}>Postagens</Button>
-                        <Button className="options" style={{ color: "#DC143C", fontWeight: "bold" }}>Temas</Button>
-                        <Button className="options" style={{ color: "#DC143C", fontWeight: "bold" }}>Cadastrar Tema</Button>
-                        <Button className="options" style={{ color: "#DC143C", fontWeight: "bold" }}>Logout</Button>
+                            <Link to='/home' className="text-decoration-none">
+                                <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Home</h3></Button>
+                            </Link>
+                            <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Postagens</h3></Button>
+                            <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Temas</h3></Button>
+                            <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Cadastrar Tema</h3></Button>
+                            <Link to='/login' className="text-decoration-none">
+                                <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Logout</h3></Button>
+                            </Link>
                         </Box>
                     </Toolbar>
                 </AppBar>
