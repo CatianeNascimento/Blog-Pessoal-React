@@ -6,20 +6,20 @@ import './Home.css';
 function Home() {
     return (
         <>
-            <Grid container direction="row" justifyContent="center" alignItems="center" style={{ backgroundColor: "black" }} >
+            <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
                 <Grid item alignItems="center" xs={6}>
                     <Box paddingX={20}>
-                        <Typography variant="h3" gutterBottom color="textPrimary" component="h3" align="center" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "candara" }}>Seja Bem-Vindes!</Typography>
-                        <Typography variant="h5" gutterBottom color="textPrimary" component="h3" align="center" style={{ color: "#ff6197", fontWeight: "bold", fontFamily: "candara" }}>Aqui você é livre para criar!</Typography>
+                        <Typography variant="h3" gutterBottom component="h3" align="center" className='title'>Seja Bem-Vindes!</Typography>
+                        <Typography variant="h5" gutterBottom component="h5" align="center" className='subtitle'>Aqui você é livre para criar!</Typography>
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
                         </Box>
-                        <Button variant="outlined" style={{ borderWidth:"3px" ,borderColor: "#ff6197", backgroundColor: "black", color: "#ff6197", fontWeight: "bold", fontFamily: "candara" }}>Ver postagens</Button>
+                        <Button variant="outlined" className='button'>Ver postagens</Button>
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
-                    <img src="src\assets\img\img-home.png" alt="" width="500px" height="500px" />
+                    <img src="src\assets\img\img-home.png" alt="Imagem Home"/>
                 </Grid>
                 <Grid xs={12} style={{ backgroundColor: "white" }}>
                 </Grid>

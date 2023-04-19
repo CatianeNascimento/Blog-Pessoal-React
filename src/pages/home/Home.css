@@ -1,9 +1,24 @@
-.titulo {
-    color:tomato; 
-    text-align:left;
+.caixa {
+    background-color: black;
 }
-.img-home {
-    margin-right: 100em;
-    display: block;
 
+.title {
+    color: #ce146a !important;
+    font-weight: bold !important;
+    font-family: "candara" !important;
+}
+
+.subtitle {
+    color: #ff6197 !important;
+    font-weight: bold !important;
+    font-family: "candara" !important;
+}
+
+.button {
+    border-width: 3px !important;
+    border-color: #ff6197 !important;
+    background-color: black ;
+    color: #ff6197 !important;
+    font-weight: bold !important;
+    font-family: "candara" !important;
 }

@@ -1,3 +1,25 @@
 .text-decoration-none {
     text-decoration: none;
 }
+
+.toolBar {
+    background-color: black;
+}
+
+.menuButton {
+    color: #ff6197 !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+}
+
+.title {
+    color:  #ff6197 ;
+    font-family: "Calibri" !important;
+    font-weight: bold !important;
+}
+
+.options {
+    color: #ce146a !important; 
+    font-weight: bold !important;
+     font-family: "Calibri" !important;
+}

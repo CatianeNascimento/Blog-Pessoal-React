@@ -1,0 +1,30 @@
+.caixa {
+    background-color: black;
+}
+
+.title {
+    color: #ce146a;
+    font-family: "calibri";
+}
+
+.icon {
+    font-size: 45px !important;
+    color: #ff6197;
+}
+
+.icon2 {
+    font-size: 35px !important;
+    color: #ff6197;
+
+}
+
+.caixa2 {
+    background-color: #ff6197;
+    height: 60px;
+}
+
+.title2 {
+    color: black;
+    font-weight: bold;
+    font-family: "calibri" !important;
+}

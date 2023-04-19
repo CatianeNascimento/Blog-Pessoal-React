@@ -10,23 +10,21 @@ function Navbar() {
     return (
         <>
             <div className="root">
-                <AppBar position="static" className="appBar" style={{ background: "black" }}>
-                    <Toolbar>
-                        <IconButton edge="start" className="menuButton" aria-label="menu" style={{ color: "#ff6197", fontWeight: "bold" }}>
+                <AppBar position="static" className="appBar">
+                    <Toolbar className="toolBar">
+                        <IconButton edge="start" className="menuButton" aria-label="menu">
                             <MenuIcon />
                         </IconButton>
-                        <Typography variant="h5" className="title" style={{ color: "#ff6197", fontFamily: "calibri", fontWeight: "bold" }}>
-                            Blog Pessoal
-                        </Typography>
+                        <Typography variant="h5" className="title">Blog Pessoal</Typography>
                         <Box paddingX={30}>
                             <Link to='/home' className="text-decoration-none">
-                                <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Home</h3></Button>
+                                <Button className="options"><h3>Home</h3></Button>
                             </Link>
-                            <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Postagens</h3></Button>
-                            <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Temas</h3></Button>
-                            <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Cadastrar Tema</h3></Button>
+                            <Button className="options"><h3>Postagens</h3></Button>
+                            <Button className="options"><h3>Temas</h3></Button>
+                            <Button className="options"><h3>Cadastrar Tema</h3></Button>
                             <Link to='/login' className="text-decoration-none">
-                                <Button className="options" style={{ color: "#ce146a", fontWeight: "bold", fontFamily: "calibri" }}><h3>Logout</h3></Button>
+                                <Button className="options"><h3>Logout</h3></Button>
                             </Link>
                         </Box>
                     </Toolbar>
