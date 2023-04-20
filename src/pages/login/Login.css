@@ -1,18 +1,32 @@
 .caixa {
     background-color: #fed4f6 !important;
 }
+
 .title {
     font-family: "calibri";
-     font-weight: bold;
-      color: #ff6197 !important;
+    font-weight: bold;
+    color: #ff6197 !important;
 }
+
 .title2 {
     color: #ff6197 !important;
 }
+
 .title3 {
-font-weight: bold !important;
-color: #ff6197;
+    font-weight: bold !important;
+    color: #ff6197;
+    text-decoration: none !important;
 }
+
 .text-decoration-none {
     text-decoration: none;
+}
+
+.img-login {
+    background-image: url(src/assets/img/img-login.png);
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 90vh;
+    background-size: 400px 566px;
+    background-position: center ;
 }

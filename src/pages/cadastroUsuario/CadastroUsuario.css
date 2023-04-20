@@ -1,0 +1,22 @@
+.img-cadastro {
+    background-image: url(src/assets/img/img-cadastro.png);
+    background-repeat: no-repeat;
+    width: 100vh;
+    min-height: 90vh;
+    background-size: 400px 566px;
+    background-position: center ;
+}
+
+.titleC {
+    font-family: "calibri" !important;
+    font-weight: bold !important;
+    color: #ff6197 !important;
+}
+
+.buttonCancelar {
+    margin-right: 20px !important;
+}
+
+.text-decoration-none {
+    text-decoration: none;
+}
