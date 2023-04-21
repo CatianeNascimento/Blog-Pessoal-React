@@ -1,11 +1,13 @@
 import React from 'react'
-import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import {BrowserRouter, Route, Routes} from 'react-router-dom'
 import Navbar from './components/statics/navbar/Navbar'
 import Home from './pages/home/Home'
-import Login from './pages/login/Login';
-import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario';
+import Login from './pages/login/Login'
+import CadastroUsuario from './pages/cadastroUsuario/CadastroUsuario'
 import Footer from './components/statics/footer/Footer'
-import './App.css'
+import ListaPostagem from './components/postagens/listaPostagem/ListaPostagem'
+import ListaTema from './components/temas/listaTemas/ListaTema'
+import './App.css';
 
 function App() {
 
@@ -17,7 +19,9 @@ function App() {
      <Route path="/" element={<Home />} /> 
     <Route path="/login" element={<Login />} /> 
     <Route path="/home" element={<Home />} />
-    { <Route path="/cadastro" element={<CadastroUsuario />} />}
+    <Route path="/cadastro" element={<CadastroUsuario />} />
+    <Route path="/posts" element={<ListaPostagem/>} />
+    <Route path="/temas" element={<ListaTema/>} />
     </Routes>
     </div>
     <Footer />
