@@ -3,6 +3,7 @@ import { Grid, Typography, Button } from "@material-ui/core"
 import { Box } from "@mui/material";
 import './Home.css';
 import TabPostagem from "../../components/postagens/tabPostagem/TabPostagem";
+import ModalPost from "../../components/postagens/modalPost/ModalPost";
 
 function Home() {
     return (
@@ -15,6 +16,7 @@ function Home() {
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
+                            <ModalPost/>
                         </Box>
                         <Button variant="outlined" className='button'>Ver postagens</Button>
                     </Box>
