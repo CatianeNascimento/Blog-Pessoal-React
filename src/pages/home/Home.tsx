@@ -4,8 +4,18 @@ import { Box } from "@mui/material";
 import './Home.css';
 import TabPostagem from "../../components/postagens/tabPostagem/TabPostagem";
 import ModalPost from "../../components/postagens/modalPost/ModalPost";
+import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { TokenState } from "../../store/tokens/TokensReducer";
 
 function Home() {
+
+    let navigate = useNavigate();
+
+    const token = useSelector<TokenState, TokenState['tokens']>(
+        (state) => state.tokens
+    );
+
     return (
         <>
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
@@ -16,16 +26,18 @@ function Home() {
                     </Box>
                     <Box display="flex" justifyContent="center">
                         <Box marginRight={1}>
-                            <ModalPost/>
+                            <ModalPost />
                         </Box>
-                        <Button variant="outlined" className='button'>Ver postagens</Button>
+                        <Link to='/posts'>
+                            <Button variant="outlined" className='button'>Ver postagens</Button>
+                        </Link>
                     </Box>
                 </Grid>
                 <Grid item xs={6} >
-                    <img src="src\assets\img\img-home.png" alt="Imagem Home"/>
+                    <img src="src\assets\img\img-home.png" alt="Imagem Home" />
                 </Grid>
-                <Grid xs={12}  className='postagens'>
-                    <TabPostagem/>
+                <Grid xs={12} className='postagens'>
+                    <TabPostagem />
                 </Grid>
             </Grid>
 

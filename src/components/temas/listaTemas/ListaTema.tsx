@@ -2,18 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
 import { Card, CardActions, CardContent, Typography, Button } from '@material-ui/core'
 import { Link, useNavigate } from 'react-router-dom'
-import useLocalStorage from 'react-use-localstorage'
 import Tema from '../../../models/Tema'
 import { busca } from '../../../services/Services'
 import './ListaTema.css';
+import { useSelector } from 'react-redux'
+import { TokenState } from '../../../store/tokens/TokensReducer'
 
 
 
 function ListaTema() {
 
     const [temas, setTemas] = useState<Tema[]>([])
-    const [token, setToken] = useLocalStorage('token')
-    let history = useNavigate();
+
+const token = useSelector<TokenState, TokenState['tokens']> (
+        (state) => state.tokens
+     );
+         let history = useNavigate();
 
     useEffect(()=> {
         if(token === '') {
@@ -53,7 +57,7 @@ function ListaTema() {
                                     <Button variant='contained' className="marginLeft" size='small'>Atualizar</Button>
                                 </Box>
                             </Link>
-                            <Link to={`/deletarTema/${tema.id}`} className='text-decorator-none'>
+                            <Link to={`/deleteTema/${tema.id}`} className='text-decorator-none'>
                                 <Box mx={1}>
                                     <Button variant='contained' size='small'>
                                         deletar

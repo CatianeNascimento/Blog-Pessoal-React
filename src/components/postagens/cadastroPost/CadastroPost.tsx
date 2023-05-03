@@ -3,18 +3,22 @@ import './CadastroPost.css'
 import { Button, Container, FormControl, TextField, InputLabel, Select, FormHelperText, Typography, MenuItem } from '@material-ui/core';
 import { useNavigate, useParams } from 'react-router-dom';
 import Postagem from '../../../models/Postagem';
-import useLocalStorage from 'react-use-localstorage';
 import Tema from '../../../models/Tema';
 import { busca, buscaId, post, put } from '../../../services/Services';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/TokensReducer';
 
 
 function CadastroPost() {
 
     let navigate = useNavigate();
     const { id } = useParams<{ id: string }>();
+    
     const [temas, setTemas] = useState<Tema[]>([])
-    const [token, setToken] = useLocalStorage('token');
 
+    const token = useSelector<TokenState, TokenState['tokens']> (
+        (state) => state.tokens
+     );
     useEffect(() => {
         if (token === '') {
             alert("Você precisa estar logado!")

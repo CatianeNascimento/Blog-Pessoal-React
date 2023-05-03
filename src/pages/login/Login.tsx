@@ -2,15 +2,20 @@ import React, { ChangeEvent, useState, useEffect} from "react";
 import { Grid, Typography, TextField, Button } from "@material-ui/core";
 import { Box } from "@mui/material";
 import { Link, useNavigate } from 'react-router-dom';
-import useLocalStorage from "react-use-localstorage";
 import { login } from "../../services/Services";
 import UserLogin from "../../models/UserLogin";
 import './Login.css';
+import { useDispatch } from "react-redux";
+import { addToken } from "../../store/tokens/actions";
 
 function Login() {
 
     let history = useNavigate();
-    const [token, setToken] = useLocalStorage('token');
+
+    const dispatch = useDispatch();
+
+    const [token, setToken] = useState('');
+
     const [userLogin, setUserLogin] = useState<UserLogin>(
         {
             id: 0,
@@ -31,7 +36,8 @@ function Login() {
 
     useEffect(() => {
         if(token != '')
-        history('/home')
+        dispatch(addToken(token))
+        history('/login')
     }, [token])
 
     async function onSubmit(e: ChangeEvent<HTMLFormElement>) {
@@ -42,10 +48,15 @@ function Login() {
 
             alert("Usuário logado com Sucesso!")
 
+            back()
 
         } catch(error) {
             alert('Dados do usuário inconsistentes. Erro ao logar!')
         }
+    }
+
+    function back() {
+        history('/home')
     }
 
     return (

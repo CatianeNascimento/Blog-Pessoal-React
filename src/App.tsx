@@ -12,15 +12,18 @@ import CadastroPost from './components/postagens/cadastroPost/CadastroPost'
 import CadastroTema from './components/temas/cadastroTema/CadastroTema'
 import DeletePost from './components/postagens/deletePost/DeletePost'
 import DeleteTema from './components/temas/deleteTema/DeleteTema'
+import { Provider } from 'react-redux'
+import store from './store/Store'
 
 function App() {
 
   return (
+    <Provider store = {store}>
     <BrowserRouter>
       <Navbar />
       <div style={{ minHeight: '50vh' }}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Login />} />
           <Route path="/login" element={<Login />} />
           <Route path="/home" element={<Home />} />
           <Route path="/cadastro" element={<CadastroUsuario />} />
@@ -29,13 +32,14 @@ function App() {
           <Route path='/formularioPostagem' element={<CadastroPost />} />
           <Route path='/formularioPostagem/:id' element={<CadastroPost />} />
           <Route path='/formularioTema' element={<CadastroTema />} />
-          <Route path='/formulario/:id' element={<CadastroPost />} />
+          <Route path='/formularioTema/:id' element={<CadastroTema />} />
           <Route path='/deletePostagem/:id' element={<DeletePost />} />
-          <Route path='/deletePostagem/:id' element={<DeleteTema />} />
+          <Route path='/deleteTema/:id' element={<DeleteTema />} />
         </Routes>
         <Footer />
       </div>
     </BrowserRouter >
+    </Provider>
 
   );
 }

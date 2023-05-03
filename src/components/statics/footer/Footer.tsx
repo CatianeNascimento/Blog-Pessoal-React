@@ -5,10 +5,19 @@ import GitHubIcon from "@material-ui/icons/GitHub";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import EmailIcon from '@mui/icons-material/Email';
 import "./Footer.css"
+import { useSelector } from "react-redux";
+import { TokenState } from "../../../store/tokens/TokensReducer";
 
 function Footer() {
-    return (
-        <>
+
+    const token = useSelector<TokenState, TokenState['tokens']>(
+        (state) => state.tokens
+    );
+
+    var footerComponent;
+
+    if (token !== '') {
+        footerComponent =
             <Grid container direction="row" justifyContent="center" alignItems="center" className='caixa'>
                 <Grid alignItems="center" item xs={12}>
                     <Box className="redesSociais">
@@ -16,12 +25,12 @@ function Footer() {
                             <Typography variant="h5" align="center" gutterBottom className='title'>Siga-me nas redes sociais </Typography>
                         </Box>
                         <Box display="flex" alignItems="center" justifyContent="center">
-                            <a href = "mailto:csnascimento07@gmail.com"target="_blank">
-                                <EmailIcon className='icon'/></a>
+                            <a href="mailto:csnascimento07@gmail.com" target="_blank">
+                                <EmailIcon className='icon' /></a>
                             <a href="https://www.linkedin.com/in/catnasc/" target="_blank">
-                                <LinkedInIcon className='icon'/></a>
+                                <LinkedInIcon className='icon' /></a>
                             <a href="https://github.com/CatianeNascimento" target="_blank">
-                                <GitHubIcon className='icon2'/></a>
+                                <GitHubIcon className='icon2' /></a>
                         </Box>
                     </Box>
                     <Box className='caixa2'>
@@ -31,6 +40,12 @@ function Footer() {
                     </Box>
                 </Grid>
             </Grid>
+    }
+
+
+    return (
+        <>
+            {footerComponent}
         </>
     );
 }
