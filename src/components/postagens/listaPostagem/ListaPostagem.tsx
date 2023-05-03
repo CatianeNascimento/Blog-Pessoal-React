@@ -7,6 +7,7 @@ import Postagem from '../../../models/Postagem';
 import { busca } from '../../../services/Services';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
+import { toast } from 'react-toastify';
 
 function ListaPostagem() {
 
@@ -20,7 +21,16 @@ function ListaPostagem() {
 
     useEffect(() => {
         if(token === '') {
-            alert("Você precisa estar logado. Por favor, realize o login!")
+            toast.error('Você precisa estar Logado!', {
+                position: 'top-right', 
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false, 
+                theme: 'colored', 
+                progress: undefined,
+            });
             history("/login")
         }
     }, [token])

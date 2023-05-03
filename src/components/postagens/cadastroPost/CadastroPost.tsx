@@ -7,6 +7,7 @@ import Tema from '../../../models/Tema';
 import { busca, buscaId, post, put } from '../../../services/Services';
 import { useSelector } from 'react-redux';
 import { TokenState } from '../../../store/tokens/TokensReducer';
+import { toast } from 'react-toastify';
 
 
 function CadastroPost() {
@@ -21,7 +22,16 @@ function CadastroPost() {
      );
     useEffect(() => {
         if (token === '') {
-            alert("Você precisa estar logado!")
+            toast.error('Você precisa estar logado!', {
+                position: 'top-right', 
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false, 
+                theme: 'colored', 
+                progress: undefined,
+            });
             navigate('/login')
         }
     }, [token])
@@ -88,7 +98,16 @@ function CadastroPost() {
                 }
             })
 
-            alert('Postagem atualizada com sucesso');
+            toast.success('Postagem Atualizada com Sucesso', {
+                position: 'top-right', 
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false, 
+                theme: 'colored', 
+                progress: undefined,
+            });
 
         } catch (error) {
             alert('Erro ao atualizar, verifique os campos')
@@ -101,7 +120,16 @@ function CadastroPost() {
                     'Authorization': token
                 }
             })
-            alert('Postagem cadastrada com sucesso!')
+            toast.success('Postagem Cadastrada com Sucesso', {
+                position: 'top-right', 
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false, 
+                theme: 'colored', 
+                progress: undefined,
+            });
         } catch (error) {
             alert('Erro ao cadastrar, verifique os campos')
         }

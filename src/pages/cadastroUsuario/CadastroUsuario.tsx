@@ -5,6 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import './CadastroUsuario.css';
 import User from '../../models/User';
 import { cadastroUsuario } from '../../services/Services';
+import { toast } from 'react-toastify';
 
 function CadastroUsuario() {
 
@@ -56,10 +57,28 @@ function CadastroUsuario() {
             try {
                 await cadastroUsuario(`/usuarios/cadastrar`, user, setUserResult)
 
-                alert("Usuário cadastrado com Sucesso!")
+                toast.success('Usuário Cadastrado com Sucessso!', {
+                    position: 'top-right', 
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false, 
+                    theme: 'colored', 
+                    progress: undefined,
+                });
 
             } catch (error) {
-                alert("Dados incorretos, tente novamente!")
+                toast.error('Dados inconsistentes! Favor verificar as informações de cadastro.', {
+                    position: 'top-right', 
+                    autoClose: 2000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: false,
+                    draggable: false, 
+                    theme: 'colored', 
+                    progress: undefined,
+                });
             }
 
         } else {
