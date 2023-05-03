@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Box } from '@mui/material'
-import {Button, Card, CardActions, CardContent, Typography} from '@material-ui/core'
+import { Button, Card, CardActions, CardContent, Typography } from '@material-ui/core'
 import './DeletePost.css'
 import { useNavigate, useParams } from 'react-router-dom'
 import useLocalStorage from 'react-use-localstorage'
@@ -11,70 +11,78 @@ import { buscaId, deleteId } from '../../../services/Services'
 function DeletePost() {
 
     let history = useNavigate()
-        const {id} = useParams<{id: string}>()
-        const [token, setToken] = useLocalStorage('token')
-    
-        const [post, setPost] = useState<Postagem> ()
-    
-        useEffect(() =>{
-            if(token === '') {
-                alert('Você precisa estar logado!')
-                history("/login")
-            }
-    
-        }, [token])
-    
-        useEffect(() =>{
-            if(id !== undefined){
-                findById(id)
-            }
-        }, [id])
-    
-        async function findById(id: string) {
-            buscaId(`/postagens/${id}`, setPost, {
-                headers: {
-                    'Authorization': token
-                }
-            })
+
+    const { id } = useParams<{ id: string }>()
+
+    const [token, setToken] = useLocalStorage('token')
+
+    const [post, setPost] = useState<Postagem>()
+
+    useEffect(() => {
+        if (token === '') {
+            alert('Você precisa estar logado!')
+            history("/login")
         }
 
-        function sim() {
-            history('/posts')
-            deleteId(`/postagens/${id}`, {
+    }, [token])
+
+    useEffect(() => {
+        if (id !== undefined) {
+            findById(id)
+        }
+    }, [id])
+
+    async function findById(id: string) {
+        buscaId(`/postagens/${id}`, setPost, {
+            headers: {
+                'Authorization': token
+            }
+        })
+    }
+
+    async function sim() {
+        history('/posts')
+
+        try {
+            await deleteId(`/postagens/${id}`, {
                 headers: {
                     'Authorization': token
                 }
             });
             alert('Postagem deletado com sucesso!')
-        }
 
-        function nao() {
-            history('/posts')
+        } catch (error) {
+            alert('Erro ao Deletar!')
         }
+    }
+
+    function nao() {
+        history('/posts')
+    }
 
 
     return (
         <>
-        <Box m={2}>
-            <Card variant='outlined'>
-                <CardContent>
-                    <Box justifyContent='center'>
-                        <Typography gutterBottom>Deseja Deletar a Postagem: </Typography>
-                        <Typography>{post?.titulo}</Typography>
-                    </Box>
-                </CardContent>
-                <CardActions>
-                    <Box display='flex' justifyContent='start' ml={1.0} mb={2}>
-                        <Box mx={2}>
-                            <Button onClick={sim} variant='contained' className='button' size='large'>Sim</Button>
+            <Box m={2}>
+                <Card variant='outlined'>
+                    <CardContent>
+                        <Box justifyContent='center'>
+                            <Typography gutterBottom>Deseja Deletar a Postagem: </Typography>
+                            <Typography>{post?.titulo}</Typography>
                         </Box>
-                        <Box>
-                        <Button onClick={nao} variant='contained' className='button' size='large'>Não</Button>
+                    </CardContent>
+                    <CardActions>
+                        <Box display='flex' justifyContent='start' ml={1.0} mb={2}>
+                            <Box mx={2}>
+                                <Button onClick={sim} variant='contained' className='button' size='large'>Sim</Button>
+                            </Box>
+                            <Box>
+                                <Button onClick={nao} variant='contained' className='button' size='large'>Não</Button>
+                            </Box>
                         </Box>
-                    </Box>
-                </CardActions>
-            </Card>
-        </Box>
+                    </CardActions>
+                </Card>
+            </Box>
         </>
     )
 }

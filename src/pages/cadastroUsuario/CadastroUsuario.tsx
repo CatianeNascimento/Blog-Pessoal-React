@@ -9,7 +9,9 @@ import { cadastroUsuario } from '../../services/Services';
 function CadastroUsuario() {
 
     let history = useNavigate();
+
     const [confirmarSenha, setConfirmarSenha] = useState<String>("")
+
     const [user, setUser] = useState<User>(
         {
             id: 0,
@@ -62,6 +64,8 @@ function CadastroUsuario() {
 
         } else {
             alert("As senhas precisam ser idênticas")
+            setUser({ ...user, senha: ''})
+            setConfirmarSenha('')
         }
     }
 

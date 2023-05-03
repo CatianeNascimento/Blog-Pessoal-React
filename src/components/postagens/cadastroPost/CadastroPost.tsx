@@ -77,7 +77,8 @@ function CadastroPost() {
         e.preventDefault()
 
         if (id !== undefined) {
-            put(`/postagens`, postagens, setPostagens, {
+            try {
+           await put(`/postagens`, postagens, setPostagens, {
                 hearders: {
                     'Authorization': token
                 }
@@ -85,14 +86,22 @@ function CadastroPost() {
 
             alert('Postagem atualizada com sucesso');
 
+        } catch (error) {
+            alert('Erro ao atualizar, verifique os campos')
+        }
+
         } else {
-            post(`/postagens`, postagens, setPostagens, {
+            try {
+           await post(`/postagens`, postagens, setPostagens, {
                 hearders: {
                     'Authorization': token
                 }
             })
             alert('Postagem cadastrada com sucesso!')
+        } catch (error) {
+            alert('Erro ao cadastrar, verifique os campos')
         }
+    }
         back()
     }
 

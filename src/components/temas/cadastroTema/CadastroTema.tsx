@@ -9,7 +9,9 @@ import { buscaId, post, put } from '../../../services/Services'
 function CadastroTema() {
 
     let history = useNavigate()
+
     const { id } = useParams<{ id: string }>()
+
     const [token, setToken] = useLocalStorage('token')
 
     const [tema, setTema] = useState<Tema>({
@@ -52,12 +54,19 @@ function CadastroTema() {
 
         if (id !== undefined) {
             console.log(tema)
-            await put(`/temas`, tema, setTema, {
-                headers: {
-                    'Authorization': token
-                }
-            })
-            alert('Tema atualizado com sucesso')
+            try {
+                await put(`/temas`, tema, setTema, {
+                    headers: {
+                        'Authorization': token
+                    }
+                })
+                alert('Tema atualizado com sucesso')
+
+            } catch (error) {
+                console.log(`Error: ${error}`)
+                alert("Erro, por favor, tente novamente!")
+            }
+
         } else {
 
             try {
@@ -68,10 +77,11 @@ function CadastroTema() {
                 })
                 alert("Tema cadastrado com sucesso")
             } catch (error) {
-                alert("Erroo")
+                console.log(`Error: ${error}`)
+                alert("Erro")
             }
-            
         }
+        
         back()
     }
 
