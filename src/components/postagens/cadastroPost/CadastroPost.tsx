@@ -64,15 +64,15 @@ function CadastroPost() {
 
     async function getTemas() {
         await busca("/temas", setTemas, {
-            hearders: {
+            headers: {
                 'Authorization': token
             }
         })
     }
 
     async function findByIdPostagem(id: string) {
-        await buscaId(`postagens/${id}`, setPostagens, {
-            hearders: {
+        await buscaId(`/postagens/${id}`, setPostagens, {
+            headers: {
                 'Authorization': token
             }
         })
@@ -93,7 +93,7 @@ function CadastroPost() {
         if (id !== undefined) {
             try {
            await put(`/postagens`, postagens, setPostagens, {
-                hearders: {
+                headers: {
                     'Authorization': token
                 }
             })
@@ -116,7 +116,7 @@ function CadastroPost() {
         } else {
             try {
            await post(`/postagens`, postagens, setPostagens, {
-                hearders: {
+                headers: {
                     'Authorization': token
                 }
             })
@@ -152,7 +152,7 @@ function CadastroPost() {
                     <InputLabel id='demo-simple-select-helper-label'>Tema</InputLabel>
                     <Select labelId='demo-simple-select-helper-label' id='demo-simple-select-helper' 
                     onChange={(e) => buscaId(`/temas/${e.target.value}`, setTema, {
-                        hearders: {
+                        headers: {
                             'Authorization': token
                         }
                     })}>

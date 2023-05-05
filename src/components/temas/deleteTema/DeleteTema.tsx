@@ -14,22 +14,22 @@ function DeleteTema() {
     let history = useNavigate()
     const { id } = useParams<{ id: string }>()
 
-    const token = useSelector<TokenState, TokenState['tokens']> (
+    const token = useSelector<TokenState, TokenState['tokens']>(
         (state) => state.tokens
-     );
-     
+    );
+
     const [tema, setTema] = useState<Tema>()
 
     useEffect(() => {
         if (token === '') {
             toast.error('Você precisa estar Logado!', {
-                position: 'top-right', 
+                position: 'top-right',
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
-                draggable: false, 
-                theme: 'colored', 
+                draggable: false,
+                theme: 'colored',
                 progress: undefined,
             });
             history("/login")
@@ -61,16 +61,16 @@ function DeleteTema() {
                 }
             });
             toast.success('Tema Deletado com Sucesso!', {
-                position: 'top-right', 
+                position: 'top-right',
                 autoClose: 2000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: false,
-                draggable: false, 
-                theme: 'colored', 
+                draggable: false,
+                theme: 'colored',
                 progress: undefined,
             });
-        
+
         } catch (error) {
             alert('Erro ao deletar');
         }
