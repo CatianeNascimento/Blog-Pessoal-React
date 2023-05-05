@@ -6,7 +6,7 @@ import { login } from "../../services/Services";
 import UserLogin from "../../models/UserLogin";
 import './Login.css';
 import { useDispatch } from "react-redux";
-import { addToken } from "../../store/tokens/actions";
+import { addToken } from "../../store/tokens/Actions";
 import { toast } from "react-toastify";
 
 function Login() {
